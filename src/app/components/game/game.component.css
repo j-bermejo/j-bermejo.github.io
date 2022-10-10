@@ -1,0 +1,74 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: 70vh;
+    width: 20vw;
+    margin-left: 40%;
+    margin-right: 50%;
+    margin-top: 5%
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 12%;
+    background-color: rgb(50, 50, 50);
+    color: whitesmoke;
+    font-family: 'Calibri';
+}
+
+.header span {
+    font-size: 28px;
+    margin-top: 10px;
+    margin-right: 40%;
+    margin-left: 5%;
+}
+
+.exit {
+    background: none;
+    width: 20%;
+    height: 100%;
+    border: none;
+}
+
+.exit img {
+    margin-top: 5px;
+    width: 50%;
+    height: 50%;
+}
+
+.gameContent {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: 100%;
+    height: 88%;
+}
+
+.score {
+    color: whitesmoke;
+    font-family: 'Calibri';
+    font-size: 26px;
+    align-self: center;
+    margin-top: 17%;
+}
+
+.singleMerge {
+    align-self: center;
+    margin-top: 30px;
+    background-color: skyblue;
+    font-size: large;
+    border-radius: 5px;
+    height: 10%;
+    width: 75%;
+    font-family: 'Calibri';
+}
+
+.singleMerge img {
+    left: -10%;
+    margin-right: 10px;
+    height: 18px;
+    width: 18px;
+}

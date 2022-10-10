@@ -4,7 +4,7 @@
     <p class='title'>Create a new player</p>
     <div class="player">
         <input type="text" class="userName" #userInput (input)="saveUser(userInput.value)">
-        <span class="place" #placeholder>Name *</span>
+        <span class="place" #placeholder>Name *</span><br>
         <span class="errorMess" *ngIf="incorrectUser">{{errorMessage}}</span>
     </div>
     <input class='login' type='button' value='Join' (click)="validateUser()" />

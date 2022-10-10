@@ -1,4 +1,10 @@
 <div class='container'>
-
-    <!-- <input class='login' type='button' value='Join' /> -->
+    <div class="header">
+        <span>Hi {{userName}}</span>
+        <button class="exit" (click)="exit()"><img src="../../../assets/exit.png"></button>
+    </div>
+    <div class="gameContent">
+        <p class="score">Merged pull request: {{score}}</p>
+        <button class="singleMerge" (click)="addSingleMerge()"><img src="../../../assets/merge.png">MERGE</button>
+    </div>
 </div>

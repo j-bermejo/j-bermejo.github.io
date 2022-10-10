@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   public validateUser(){
     if(this.registeredUsers.includes(this.userName)){
       this.incorrectUser = false;
-      this.router.navigate(['/autoclicker']);
+      this.router.navigate(['/autoclicker', this.userName]);
     }
     else if(this.userName == ''){
       this.incorrectUser = true;
