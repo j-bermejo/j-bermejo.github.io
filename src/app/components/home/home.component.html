@@ -2,13 +2,10 @@
     <div class='logo'><img src='../../../assets/logo.png' /></div>
     <br>
     <p class='title'>Create a new player</p>
-    <!-- <div class="player">
-        <input class='user' type='text' required/>
-        <span class="place">Name</span>
-    </div> -->
     <div class="player">
-        <input type="text" class="userName" required>
-        <span class="place">Name *</span>
+        <input type="text" class="userName" #userInput (input)="saveUser(userInput.value)">
+        <span class="place" #placeholder>Name *</span>
+        <span class="errorMess" *ngIf="incorrectUser">{{errorMessage}}</span>
     </div>
-    <input class='login' type='button' value='Join' />
+    <input class='login' type='button' value='Join' (click)="validateUser()" />
 </div>

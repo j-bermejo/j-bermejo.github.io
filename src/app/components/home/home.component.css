@@ -76,6 +76,12 @@ input:focus+.place {
     color: skyblue;
 }
 
+.errorMess {
+    color: red;
+    font-family: 'Calibri';
+    font-size: 16px;
+}
+
 .login {
     align-self: center;
     margin-top: 50px;
