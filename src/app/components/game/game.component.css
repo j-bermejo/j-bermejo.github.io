@@ -72,3 +72,22 @@
     height: 18px;
     width: 18px;
 }
+
+.autoMerge {
+    align-self: center;
+    margin-top: -5px;
+    background-color: skyblue;
+    font-size: large;
+    border-radius: 0px 0px 5px 5px;
+    height: 9%;
+    width: 75%;
+    font-family: 'Calibri';
+}
+
+.upgrades {
+    color: whitesmoke;
+    font-family: 'Calibri';
+    font-size: 24px;
+    align-self: center;
+    margin-top: -5%;
+}

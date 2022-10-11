@@ -4,7 +4,13 @@
         <button class="exit" (click)="exit()"><img src="../../../assets/exit.png"></button>
     </div>
     <div class="gameContent">
-        <p class="score">Merged pull request: {{score}}</p>
+        <p class="score">Merged pull request: {{scoreView}}</p>
+        <p class="upgrades" *ngIf="hasAnyUpgrade">
+            <span *ngIf="autoClickers >=1">Auto mergers: {{autoClickers}}</span>
+        </p>
         <button class="singleMerge" (click)="addSingleMerge()"><img src="../../../assets/merge.png">MERGE</button>
+        <button class="autoMerge" *ngIf="score>=50 || hasAnyUpgrade" (click)="buyAutoMerger()" [disabled]="!canBuyAutoClicker" #autoMergerBtn>
+            <img src="../../../assets/shop.png">BUY AUTO MERGER ({{upgradeCostView}})
+        </button>
     </div>
 </div>

@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
     }
     else{
       this.incorrectUser = true;
-      this.errorMessage = 'Invalid User'
+      this.errorMessage = 'Invalid user, try some of this(Squid, Javi, BBVA)'
       this.render.setStyle(this.isWrongUser.nativeElement, 'border-color', 'red');
       this.render.setStyle(this.placeholder.nativeElement, 'color', 'red');
       this.isWrongUser.nativeElement.value='';
