@@ -5,12 +5,22 @@
     </div>
     <div class="gameContent">
         <p class="score">Merged pull request: {{scoreView}}</p>
-        <p class="upgrades" *ngIf="hasAnyUpgrade">
-            <span *ngIf="autoClickers >=1">Auto mergers: {{autoClickers}}</span>
+        <p class="upgrades" *ngIf="autoClickers>0">
+            <span *ngIf="autoClickers >=1">Auto mergers: {{autoClickers}}</span><br>
+            <span *ngIf="autoClickerUpgrade >=1">Auto mergers upgrades: {{autoClickerUpgrade}}</span><br>
+            <span *ngIf="megaClicker >=1">Clicker upgrades: {{megaClicker}}</span>
         </p>
-        <button class="singleMerge" (click)="addSingleMerge()"><img src="../../../assets/merge.png">MERGE</button>
-        <button class="autoMerge" *ngIf="score>=50 || hasAnyUpgrade" (click)="buyAutoMerger()" [disabled]="!canBuyAutoClicker" #autoMergerBtn>
-            <img src="../../../assets/shop.png">BUY AUTO MERGER ({{upgradeCostView}})
+        <!-- <div class="shop"> -->
+        <button class="singleMerge" (click)="addMerge()"><img src="../../../assets/merge.png">MERGE</button>
+        <button class="shopButtons" *ngIf="score>=50 || autoClickers>0" (click)="buyAutoClicker()" [disabled]="!canBuyAutoClicker" #autoMergerBtn>
+            <img src="../../../assets/shop.png">BUY AUTO MERGER ({{autoClickerCostView}})
         </button>
+        <button class="shopButtons" *ngIf="score>=2000 || autoClickerUpgrade>0" (click)="buyAutoClickerUpgrade()" [disabled]="!canBuyAutoClickerUpgrade" #autoMergerUpgradeBtn>
+            <img src="../../../assets/shop.png">UPGRADE AUTO ({{autoClickerUpgradeCostView}})
+        </button>
+        <button class="shopButtons" *ngIf="score>=5000 || megaClicker>0" (click)="buyMegaClicker()" [disabled]="!canBuyMegaClicker" #megaClickerBtn>
+            <img src="../../../assets/shop.png">BUY MEGA CLICKER ({{megaClickerCostView}})
+        </button>
+        <!-- </div> -->
     </div>
 </div>

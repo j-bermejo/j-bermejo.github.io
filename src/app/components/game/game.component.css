@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     background-color: black;
-    height: 70vh;
-    width: 20vw;
+    height: 75vh;
+    width: 25vw;
     margin-left: 40%;
     margin-right: 50%;
     margin-top: 5%
@@ -22,7 +22,7 @@
 .header span {
     font-size: 28px;
     margin-top: 10px;
-    margin-right: 40%;
+    margin-right: 50%;
     margin-left: 5%;
 }
 
@@ -73,7 +73,7 @@
     width: 18px;
 }
 
-.autoMerge {
+.shopButtons {
     align-self: center;
     margin-top: -5px;
     background-color: skyblue;
