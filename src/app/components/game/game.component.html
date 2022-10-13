@@ -5,8 +5,8 @@
     </div>
     <div class="gameContent">
         <p class="score">Merged pull request: {{scoreView}}</p>
-        <p class="upgrades" *ngIf="autoClickers>0">
-            <span *ngIf="autoClickers >=1">Auto mergers: {{autoClickers}}</span><br>
+        <p class="upgrades" *ngIf="autoClickers>=1">
+            <span>Auto mergers: {{autoClickers}}</span><br>
             <span *ngIf="autoClickerUpgrade >=1">Auto mergers upgrades: {{autoClickerUpgrade}}</span><br>
             <span *ngIf="megaClicker >=1">Clicker upgrades: {{megaClicker}}</span>
         </p>

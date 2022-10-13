@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Player } from '../../objects/Player';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,40 +10,63 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  public registeredUsers = ['Squid', 'Javi', 'BBVA']
-  public userName:string="";
-  public errorMessage:string="";
-  public incorrectUser:boolean=false;
+  public inputUserName: string = "";
+  public registeredUsers: Player[] = [new Player('Squid', 0, 0, 0, 0, 0), new Player('Foo', 0, 0, 0, 0, 0), new Player('Javi', 0, 0, 0, 0, 0)];
+  public namesList: String[] = [];
+  public players: Player[] = [];
 
-@ViewChild('userInput') isWrongUser:any;
-@ViewChild('placeholder') placeholder:any;
+  public errorMessage: string = "";
+  public incorrectUser: boolean = false;
 
-  constructor(private render: Renderer2, private router:Router) { }
+  @ViewChild('userInput') isWrongUser: any;
+  @ViewChild('placeholder') placeholder: any;
 
-  ngOnInit() {console.log(this.userName);}
+  constructor(private render: Renderer2, private router: Router) {
+    if (window.localStorage.hasOwnProperty('users') == false) {
+      localStorage.setItem('users', JSON.stringify(this.registeredUsers));
+    }
+
+    this.players = JSON.parse(localStorage.getItem('users') || '[]');
+    this.players.map(user => {
+      this.namesList.push(user.userName);
+    });
+  }
+
+  ngOnInit() {
+   }
 
   public saveUser(userInput: string) {
-    this.userName = userInput;
+    this.inputUserName = userInput;
 
   }
 
-  public validateUser(){
-    if(this.registeredUsers.includes(this.userName)){
-      this.incorrectUser = false;
-      this.router.navigate(['/autoclicker', this.userName]);
+  public validateUser() {
+    if (this.namesList.includes(this.inputUserName)) {
+      this.players.map(user => {
+        if (this.inputUserName == user.userName) {
+          // this.currentPlayer = user;
+          localStorage.setItem('localUserName', user.userName);
+          localStorage.setItem('localUserScore', user.userScore.toString());
+          localStorage.setItem('localUserMaxScore', user.userMaxScore.toString());
+          localStorage.setItem('localAutoClicker', user.userAutoClickers.toString());
+          localStorage.setItem('localAutoClickerUpgrade', user.userAutoClickerUpgrade.toString());
+          localStorage.setItem('localMegaClicker', user.userMegaClicker.toString());
+        }
+      });
+      this.router.navigate(['/autoclicker']);
     }
-    else if(this.userName == ''){
+    else if (this.inputUserName == '') {
       this.incorrectUser = true;
       this.errorMessage = 'Required field';
       this.render.setStyle(this.isWrongUser.nativeElement, 'border-color', 'red');
       this.render.setStyle(this.placeholder.nativeElement, 'color', 'red');
     }
-    else{
+    else {
       this.incorrectUser = true;
-      this.errorMessage = 'Invalid user, try some of this(Squid, Javi, BBVA)'
+      this.errorMessage = 'Invalid user, try some of this ' + this.namesList.map(user => { return user })
       this.render.setStyle(this.isWrongUser.nativeElement, 'border-color', 'red');
       this.render.setStyle(this.placeholder.nativeElement, 'color', 'red');
-      this.isWrongUser.nativeElement.value='';
+      this.isWrongUser.nativeElement.value = '';
     }
   }
 

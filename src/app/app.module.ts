@@ -8,7 +8,7 @@ import { GameComponent } from './components/game/game.component';
 
 const routes: Routes = [
   {path: '', component:HomeComponent},
-  {path: 'autoclicker/:userName', component:GameComponent}
+  {path: 'autoclicker', component:GameComponent}
 ];
 
 @NgModule({
